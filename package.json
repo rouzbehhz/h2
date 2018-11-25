@@ -1,8 +1,8 @@
 {
   "name": "h2",
-  "version": "0.1.0alpha",
+  "version": "0.1.1alpha",
   "description": "A mini browser to embed on top of screens",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win --linux --mac",
@@ -11,13 +11,12 @@
   "build": {
     "appId": "com.ipiush.h2"
   },
-  "repository": "https://github.com/poush/h2",
+  "repository": "https://github.com/poush/H2",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "electron",
+    "picture-in-picture",
+    "browser",
+    "embed"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",

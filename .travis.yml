@@ -1,21 +1,22 @@
 os: osx
 language: node_js
 node_js: 8
+sudo: false
 
-env:
-  global:
-    - FORCE_COLOR=1
+matrix:
+  allow_failures:
+    - os: osx
+  fast_finish: true
+
+before_script:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
 
 cache:
   yarn: true
-  directories:
-    - node_modules
-    - $HOME/Library/Caches/electron
-    - $HOME/Library/Caches/electron-builder
-    - /tmp/jest-electron-builder-tests
 
 install:
-  - brew install wine
   - curl -L https://yarnpkg.com/latest.tar.gz | tar xz && mv yarn-* $HOME/.yarn
   - export PATH="$HOME/.yarn/bin:$PATH"
   - yarn
